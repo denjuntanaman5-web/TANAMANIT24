@@ -12,14 +12,14 @@
     </h1>
     <input type="text" id="taskInput" placeholder="Add a task" />
     <button onclick="addTask()"> Add Task</button>
-    <ul id="taskList">Your tasks go here ...</ul>
+    <ul id="taskList">Your tasks go here......</ul>
 
     <script>
         function getTaskText() {
             const input = document.getElementById('taskInput');
             const text = input.value.trim();
 
-            console.log("The input value is: " + input.value);
+            console.log("Your input value is: " + input.value);
             return text;
         }
         function addTask() {
