@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tanaman24</title>
+    <title>Document</title>
 </head>
+
 <body>
-    <h1>Hello World</h1>
-    <h1>I am Tanaman</h1>
+    <h1>Todo List</h1>
+    </h1>
+    <input type="text" id="taskInput" placeholder="Add a task" />
+    <button onclick="addTask()"> Add Task</button>
+    <ul id="taskList">Your tasks go here ...</ul>
+
+    <script>
+        function getTaskText() {
+            const input = document.getElementById('taskInput');
+            const text = input.value.trim();
+
+            console.log("The input value is: " + input.value);
+            return text;
+        }
+        function addTask() {
+           const taskText = getTaskText();
+            addTaskItem(taskText);
+        }
+        function addTaskItem(taskText){
+            const li = document.createElement('li');
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+            li.appendChild(taskSpan);
+
+            document.getElementById('taskList').appendChild(li);
+        }
+    </script>
 </body>
+
 </html>
