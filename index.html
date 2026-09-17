@@ -1,40 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <h1>Todo List</h1>
-    </h1>
-    <input type="text" id="taskInput" placeholder="Add a task" />
-    <button onclick="addTask()"> Add Task</button>
-    <ul id="taskList">Your tasks go here......</ul>
-
+    <input type = "text"
+            id = "taskInput"
+            placeholder =" Add a task"
+    />
+    <button onclick="addTask()">Add Task</button>
+    <ul id = "taskList"> Your tasks go here</ul>
     <script>
-        function getTaskText() {
-            const input = document.getElementById('taskInput');
-            const text = input.value.trim();
+    function getTaskText(){
+        const input = document.getElementById('taskInput');
+        const text = input.value.trim();
+        console.log("The input value is: " + input.value);
 
-            console.log("Your input value is: " + input.value);
-            return text;
-        }
-        function addTask() {
-           const taskText = getTaskText();
-            addTaskItem(taskText);
-        }
-        function addTaskItem(taskText){
-            const li = document.createElement('li');
-            const taskSpan = document.createElement('span');
-            taskSpan.textContent = taskText;
-            li.appendChild(taskSpan);
+       
+        return text;
+    }
+    function addTask(){
+        const taskText = getTaskText();
+        addTaskItem(taskText);
+    }
+    function addTaskItem(taskText){
+        const li = document.createElement('li');
+        const taskSpan = document.createElement('span');
+        taskSpan.textContent = taskText;
+        li.appendChild(taskSpan);
 
-            document.getElementById('taskList').appendChild(li);
+        document.getElementById('taskList').appendChild(li);
+
+        const doneBtn = createDoneButton(li);
+        li.appendChild(doneBtn);
+         const editBtn = createEditBtn(li, taskSpan);
+       
+
+    }
+    function createDoneButton(li){
+        const doneBtn = document.createElement("button");
+        doneBtn.textContent = "Done";
+       
+        doneBtn.onclick = () => {
+         console.log(li);
+         li.classList.add('done');
+         const buttons = li.querySelectorAll("button");
+
+         buttons.forEach(btn => {
+            btn.disabled=true;
+         });
+         console.log("Task Completed", li.textContent, Date());
         }
+        return doneBtn;
+    }
+   
+            
+
+
+  
+   
     </script>
 </body>
-
 </html>
