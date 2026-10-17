@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HoopsZone | Basketball Gear Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- reusable basketball logo -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="ball" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="46" fill="#ff6b1a" stroke="#111" stroke-width="4"/>
+    <path d="M50 4 V96 M4 50 H96" stroke="#111" stroke-width="4" fill="none"/>
+    <path d="M17 17 Q50 50 17 83 M83 17 Q50 50 83 83" stroke="#111" stroke-width="4" fill="none"/>
+  </symbol>
+</svg>
+
+<!-- ================= WELCOME PAGE ================= -->
+<section id="welcome">
+  <svg class="court-lines" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#fff" stroke-width="4">
+      <circle cx="400" cy="300" r="90"/><line x1="400" y1="0" x2="400" y2="600"/>
+      <rect x="-4" y="190" width="200" height="220"/><rect x="604" y="190" width="200" height="220"/>
+    </g>
+  </svg>
+  <svg class="big-ball"><use href="#ball"/></svg>
+  <h1>WELCOME TO<br><span>HOOPSZONE</span></h1>
+  <p>Your home court for basketballs, jerseys and shoes. Gear up and play like a pro.</p>
+  <button class="cta" id="enterBtn">🏀 Enter the Court</button>
+</section>
+
+<!-- ================= MAIN SITE ================= -->
+<div id="site" class="hidden">
+  <header>
+    <div class="container">
+      <div class="brand">
+        <svg><use href="#ball"/></svg>
+        <div class="name">HOOPS<span>ZONE</span></div>
+        <button class="cart-btn">🛒 Cart<b>0</b></button>
+      </div>
+      <nav>
+        <button data-page="home" class="active">Home</button>
+        <button data-page="shop">Shop All</button>
+        <button data-page="about">About Us</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HOME -->
+    <div id="page-home" class="page">
+      <div class="hero">
+        <div>
+          <h2>GEAR UP.<br>OWN THE COURT.</h2>
+          <p>Top-quality basketballs, jerseys and shoes picked for every kind of player.</p>
+          <button class="cta" data-page="shop">Shop All Products</button>
+        </div>
+        <div class="emoji">🏀</div>
+      </div>
+
+      <h2 class="section-title">Shop by <span>Category</span></h2>
+      <p class="sub"></p>
+      <div class="cats">
+        <div class="cat"><div class="ico">🏀</div><h3>Basketballs</h3><p>Indoor, outdoor &amp; training</p></div>
+        <div class="cat"><div class="ico">👕</div><h3>Jerseys</h3><p>Team &amp; custom wear</p></div>
+        <div class="cat"><div class="ico">👟</div><h3>Shoes</h3><p>Grip, comfort &amp; speed</p></div>
+      </div>
+
+      <h2 class="section-title">Best <span>Sellers</span></h2>
+      <p class="sub"></p>
+      <div class="grid" id="bestGrid"></div>
+      <div class="center"><button class="ghost" data-page="shop">View All Products →</button></div>
+    </div>
+
+    <!-- SHOP ALL -->
+    <div id="page-shop" class="page hidden">
+      <h2 class="section-title">Shop <span>All</span></h2>
+      <p class="sub">All Products.</p>
+      <div class="grid" id="shopGrid"></div>
+    </div>
+
+    <!-- ABOUT US -->
+    <div id="page-about" class="page hidden">
+      <div class="about-intro">
+        <h2 class="section-title">About <span>HoopsZone</span></h2>
+        <p>HoopsZone is a basketball gear store built for players of all levels. Our goal is to make quality basketballs, jerseys and shoes easy to find and affordable. This website was developed as a school project by the team below.</p>
+      </div>
+
+      <h2 class="section-title">Meet the <span>Developers</span></h2>
+      <p class="sub"></p>
+      <div class="team" id="team"></div>
+
+      <h2 class="section-title">Find <span>Us</span></h2>
+      <p class="sub">Visit Us.</p>
+      <div class="location">
+        <div class="loc-info">
+          <h3 style="font-size:1.8rem">HoopsZone Store</h3>
+          <div><small>📍 Address</small><span id="locAddress"></span></div>
+          <div><small>🕘 Store Hours</small><span id="locHours"></span></div>
+          <div><small>📞 Contact</small><span id="locPhone"></span></div>
+          <div><small>✉️ Email</small><span id="locEmail"></span></div>
+        </div>
+        <div class="map"><iframe id="mapFrame" loading="lazy" title="HoopsZone location map"></iframe></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>© 2026 HoopsZone. All rights reserved. · Made by the HoopsZone dev team</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
