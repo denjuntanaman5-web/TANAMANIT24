@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResult"></div>
+</body>
+<script>
+    const apiKey = "1e6a06157ad8bed73183befa91c37921";
+ 
+
+    async function getWeather(){
+        const city = prompt ("Enter city name:");
+        if (!city) {
+            alert("City name cannot be empty.");
+            return;
+        }
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        try{
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('City not found');
+            const data = await response.json();
+
+            const weatherResult = document.getElementById('weatherResult');
+            weatherResult.innerHTML = `
+                <h2>${data.name}, ${data.sys.country}</h2>
+                <p>Temperature: ${data.main.temp} C</p>
+                <p>Weather: ${data.weather[0].description}</p>
+                <p>Humidity: ${data.main.humidity}%</p>
+                <p>Wind Speed: ${data.wind.speed} m/s</p>
+            `;
+        } catch (error) {
+            alert("Error: " + error.message);
+        }
+
+    }
+</script>
+</html>
