@@ -24,9 +24,46 @@
 
     <script>
 
-    const apiKey = "YOUR_OPENWEATHER_API_KEY";
+    const apiKey = "1e6a06157ad8bed73183befa91c37921";
+
+    async function getWeather() {
+
+    const city = prompt("Enter a city name");
+
+    if (!city) {
+        alert("No city entered");
+        return;
+    }
+
+    const url =
+        `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
+
+
+    try {
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("City not found");
+        }
+
+        const data = await response.json();
+
+        getWeatherByCoordinates(
+            data.coord.lat,
+            data.coord.lon
+        );
+
+    } catch (error) {
+
+        alert("Error: " + error.message);
+
+    }
+}
 
     </script>
+
+    
 
 </body>
 </html>
